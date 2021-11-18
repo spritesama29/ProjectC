@@ -1,1 +1,7 @@
 # ProjectC
+1.For step one we made a readFile which took in a buffer and a file name and placed them in a for loop. We then read in from sector 2 and checked if the file name matched, if so we loaded the file using readSector and placing the contents into buffer, and then printed out the buffer contents.
+2. For step two, we made a function executeProgram, which took a file name and gave it to readfile. Then it would put in memory buffer[i] @ 0x2000 from 0 to 13312. It then launches the program with the launch program function at 0x2000. We then made it handle interrupt 4
+3. For step 3, we made a terminate function that just has a while(1) in it as a handleInterrupt 5
+4. For step 4, we made a shell.c which took in input using syscalls from our kernel after it printed a "shell>" using syscall 0. This step would always print out "bad command", as there were no commands to compare to yet
+5. In step 5, we made shell recognize the command type, which would read in the file after type and print out the message inside. We compared the input to the chars of type and put them into a string to pass to readFile. As long as sectorsRead wasnt 0 it was the right file and we printed it out
+6. For the last step, we made the exec command, which was made similarly to the previous command, but it instead checks exec chars and uses execute program to launch our test programs. The only thing not done in this step was the error checking, as for some reason, it took an unreasonably long time to find if it worked.
